@@ -2,13 +2,14 @@ import { Button } from "./ui/button";
 import { Play, ChevronDown } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
+
 export function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
-          src="/images/banner.png"
+          src="/GameVerse/images/banner.png"
           alt="Gaming setup with neon lights"
           className="w-full h-full object-cover"
         />
