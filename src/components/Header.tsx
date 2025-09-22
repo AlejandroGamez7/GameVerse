@@ -20,7 +20,7 @@ export function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-6">
           <a href="#home" className="transition-colors hover:text-primary">
             Inicio
           </a>
@@ -28,12 +28,13 @@ export function Header() {
             Juegos
           </a>
           <a href="#categories" className="transition-colors hover:text-primary">
-            Categorias
+            Categorías
           </a>
           <a href="#news" className="transition-colors hover:text-primary">
             Noticias
           </a>
         </nav>
+
 
         {/* Actions */}
         <div className="flex items-center space-x-2">
