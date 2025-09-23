@@ -37,11 +37,7 @@ export function Header() {
           <a href="#news" className="transition-colors hover:text-primary">
             Noticias
           </a>
-        </nav>
-
-        {/* Actions */}
-        <div className="flex items-center space-x-2">
-          {/* Search Button and Panel */}
+          {/* Search Bar inside Nav */}
           <Sheet open={isSearchOpen} onOpenChange={setIsSearchOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon">
@@ -51,24 +47,24 @@ export function Header() {
             <AnimatePresence>
               {isSearchOpen && (
                 <SheetContent
-                  side="top"
-                  className="w-full max-w-full p-4 bg-background/95 backdrop-blur"
+                  side="right"
+                  className="w-1/4 max-w-[400px] p-4 bg-background/95 backdrop-blur"
                 >
                   <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 100 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   >
                     <div className="flex items-center justify-center">
-                      <div className="relative w-full max-w-lg">
+                      <div className="relative w-full">
                         <input
                           type="text"
                           placeholder="Buscar juegos..."
-                          className="w-full pl-10 pr-4 py-2 rounded-full border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                          className="w-full pl-8 pr-4 py-2 rounded-full border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                         />
                         <Search
-                          className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground"
+                          className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
                         />
                       </div>
                     </div>
@@ -77,7 +73,10 @@ export function Header() {
               )}
             </AnimatePresence>
           </Sheet>
+        </nav>
 
+        {/* Actions */}
+        <div className="flex items-center space-x-2">
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
@@ -105,6 +104,17 @@ export function Header() {
                 <a href="#news" className="transition-colors hover:text-primary">
                   Noticias
                 </a>
+                {/* Mobile Search */}
+                <div className="relative w-full">
+                  <input
+                    type="text"
+                    placeholder="Buscar juegos..."
+                    className="w-full pl-8 pr-4 py-2 rounded-full border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  <Search
+                    className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
+                  />
+                </div>
               </nav>
             </SheetContent>
           </Sheet>
