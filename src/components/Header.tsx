@@ -37,77 +37,44 @@ export function Header() {
           <a href="#news" className="transition-colors hover:text-primary">
             Noticias
           </a>
-          {/* Expanding Search Bar with Icon on Left */}
-          <div className="relative flex items-center max-w-[25vw]">
-            <motion.div
-              className="flex items-center rounded-full border border-input bg-background overflow-hidden"
-              initial={false}
-              animate={{ width: isSearchOpen ? "25vw" : "auto" }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-            >
-              {/* Fixed Search Icon on Left */}
-              <Search 
-                className="ml-2 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" 
-              />
-              
-              {/* Animated Input */}
-              <AnimatePresence>
-                {isSearchOpen && (
-                  <motion.input
+          {/* Expanding Search Bar */}
+          <div className="relative flex items-center">
+            <AnimatePresence>
+              {isSearchOpen && (
+                <motion.div
+                  className="relative overflow-hidden rounded-full border border-input bg-background"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  exit={{ scaleX: 0 }}
+                  style={{ transformOrigin: "right center" }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="pl-1 pr-2 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-[25vw] pl-12 pr-4 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
                     autoFocus
-                    initial={{ width: 0, opacity: 0 }}
-                    animate={{ width: "100%", opacity: 1 }}
-                    exit={{ width: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
                   />
-                )}
-              </AnimatePresence>
-              
-              {/* Close Button on Right */}
-              <AnimatePresence>
-                {isSearchOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                  >
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => setIsSearchOpen(false)}
-                      className="h-8 w-8 rounded-full p-0 ml-1 mr-1"
-                    >
-                      <X className="h-3 w-3" />
-                    </Button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-            
-            {/* Trigger Button (only visible when closed) */}
-            <AnimatePresence>
-              {!isSearchOpen && (
-                <motion.div
-                  initial={{ opacity: 1 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={() => setIsSearchOpen(true)}
-                    className="rounded-full ml-2"
-                  >
-                    <Search className="h-4 w-4" />
-                  </Button>
+                  <Search
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none"
+                  />
                 </motion.div>
               )}
             </AnimatePresence>
+            <motion.div
+              initial={false}
+              animate={{ x: isSearchOpen ? "25vw" : 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setIsSearchOpen((prev) => !prev)}
+                className="rounded-full"
+              >
+                {isSearchOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
+              </Button>
+            </motion.div>
           </div>
         </nav>
 
