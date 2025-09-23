@@ -42,7 +42,7 @@ export function Header() {
             <AnimatePresence>
               {isSearchOpen && (
                 <motion.div
-                  className="relative mr-0 overflow-hidden rounded-full border border-input bg-background flex-shrink-0"
+                  className="relative overflow-hidden rounded-full border border-input bg-background"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   exit={{ scaleX: 0 }}
@@ -52,22 +52,29 @@ export function Header() {
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="w-[25vw] max-w-[25vw] pl-10 pr-4 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                    className="w-[25vw] pl-12 pr-4 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
                     autoFocus
                   />
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                  <Search
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none"
+                  />
                 </motion.div>
               )}
             </AnimatePresence>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setIsSearchOpen((prev) => !prev)}
-              className="ml-0 rounded-full transition-all duration-300 ease-out"
-              style={{ marginLeft: isSearchOpen ? 0 : '0' }}
+            <motion.div
+              initial={false}
+              animate={{ x: isSearchOpen ? "25vw" : 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              {isSearchOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
-            </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setIsSearchOpen((prev) => !prev)}
+                className="rounded-full"
+              >
+                {isSearchOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
+              </Button>
+            </motion.div>
           </div>
         </nav>
 
@@ -107,7 +114,9 @@ export function Header() {
                     placeholder="Buscar juegos..."
                     className="w-full pl-8 pr-4 py-2 rounded-full border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
-                  <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Search
+                    className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
+                  />
                 </div>
               </nav>
             </SheetContent>
