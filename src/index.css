@@ -163,7 +163,6 @@
   html, :host {
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
-    scroll-behavior: smooth;
     line-height: 1.5;
     font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
     font-feature-settings: var(--default-font-feature-settings, normal);
@@ -4636,6 +4635,7 @@
 
 html {
   font-size: var(--font-size);
+  scroll-behavior: smooth;
 }
 
 @property --tw-translate-x {
