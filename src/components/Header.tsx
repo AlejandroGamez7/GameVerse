@@ -50,7 +50,7 @@ export function Header() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   {/* Icono como flex child a la izquierda */}
-                  <Search className="ml-2 mr-4 pr-2 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
+                  <Search className="ml-3 mr-6 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
                   
                   {/* Input con padding mínimo, ya que el icono ocupa espacio */}
                   <input
