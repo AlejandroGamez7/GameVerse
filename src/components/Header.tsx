@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "./ui/button";
 import { GamepadIcon, Menu, Search } from "lucide-react";
 import {
@@ -10,6 +11,8 @@ import {
 } from "./ui/sheet";
 
 export function Header() {
+  const [searchOpen, setSearchOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between px-4">
@@ -35,13 +38,31 @@ export function Header() {
           </a>
         </nav>
 
-
         {/* Actions */}
-        <div className="flex items-center space-x-2">
-          <Button variant="outline" size="icon">
+        <div className="flex items-center space-x-2 relative">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => setSearchOpen(!searchOpen)}
+          >
             <Search className="h-4 w-4" />
           </Button>
-          
+
+          {/* Animated Search Panel */}
+          <div
+            className={`
+              absolute top-0 left-0 h-full bg-white shadow-lg p-4 transition-transform duration-300
+              ${searchOpen ? "translate-x-0" : "-translate-x-full"}
+              md:hidden
+            `}
+          >
+            <input
+              type="text"
+              placeholder="Buscar..."
+              className="border rounded px-2 py-1 w-48 focus:outline-none"
+            />
+          </div>
+
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
