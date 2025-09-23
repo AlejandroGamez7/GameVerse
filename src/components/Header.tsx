@@ -32,8 +32,8 @@ export function Header() {
             Juegos
           </a>
           <a href="#categories" className="transition-colors hover:text-primary">
-              Categorías
-            </a>
+            Categorías
+          </a>
           <a href="#news" className="transition-colors hover:text-primary">
             Noticias
           </a>
@@ -43,23 +43,20 @@ export function Header() {
             <AnimatePresence>
               {isSearchOpen && (
                 <motion.div
-                  className="flex items-center overflow-hidden rounded-full border border-input bg-background"
+                  className="flex items-center overflow-hidden rounded-full border border-input bg-background mr-2"
                   initial={{ width: 0 }}
-                  animate={{ width: 250 }}
-                  exit={{ width: 0 }}
+                  animate={{ width: 250, marginRight: 8 }} // Expande hacia la derecha + deja hueco
+                  exit={{ width: 0, marginRight: 0 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  {/* Icono como flex child a la izquierda */}
-                  <Search
-                    className="ml-2 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none"
-                    style={{ marginRight: '32px !important' }} // Fallback inline forzado
-                  />
-                  
-                  {/* Input con padding izquierdo extra para más separación */}
+                  {/* Icono fijo a la izquierda */}
+                  <Search className="ml-2 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
+
+                  {/* Input con padding para separación */}
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="flex-1 pl-6 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                    className="flex-1 pl-4 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
                     autoFocus
                   />
                 </motion.div>
@@ -71,7 +68,7 @@ export function Header() {
               variant="outline"
               size="icon"
               onClick={() => setIsSearchOpen((prev) => !prev)}
-              className="ml-2 rounded-full transition-all duration-300 ease-out"
+              className="rounded-full transition-all duration-300 ease-out"
             >
               {isSearchOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
             </Button>
