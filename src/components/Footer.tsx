@@ -89,7 +89,7 @@ export function Footer() {
         </div>
 
         <div className="border-t mt-12 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2024 GameVerse. Todos los derechos reservados.</p>
+          <p>&copy; 2025 GameVerse. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
