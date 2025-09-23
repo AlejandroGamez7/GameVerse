@@ -43,21 +43,20 @@ export function Header() {
             <AnimatePresence>
               {isSearchOpen && (
                 <motion.div
-                  className="relative overflow-hidden rounded-full border border-input bg-background flex items-center"
+                  className="flex items-center overflow-hidden rounded-full border border-input bg-background"
                   initial={{ width: 0 }}
                   animate={{ width: 250 }}
                   exit={{ width: 0 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  {/* Icono dentro del input */}
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                    <Search className="h-4 w-4 text-muted-foreground" />
-                  </div>
-                  {/* Input con padding-left suficiente */}
+                  {/* Icono como flex child a la izquierda */}
+                  <Search className="ml-3 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
+                  
+                  {/* Input con padding mínimo, ya que el icono ocupa espacio */}
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="w-full pl-10 pr-4 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                    className="flex-1 px-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-r-full"
                     autoFocus
                   />
                 </motion.div>
