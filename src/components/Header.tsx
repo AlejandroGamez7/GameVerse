@@ -45,11 +45,15 @@ export function Header() {
                 <motion.div
                   className="relative overflow-hidden rounded-full border border-input bg-background flex items-center"
                   initial={{ width: 0 }}
-                  animate={{ width: "250px" }}
+                  animate={{ width: 250 }}
                   exit={{ width: 0 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                  {/* Icono dentro del input */}
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <Search className="h-4 w-4 text-muted-foreground" />
+                  </div>
+                  {/* Input con padding-left suficiente */}
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
@@ -60,6 +64,7 @@ export function Header() {
               )}
             </AnimatePresence>
 
+            {/* Botón de toggle */}
             <Button
               variant="outline"
               size="icon"
@@ -69,6 +74,7 @@ export function Header() {
               {isSearchOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
             </Button>
           </div>
+
         </nav>
 
         {/* Actions / Mobile Menu */}
