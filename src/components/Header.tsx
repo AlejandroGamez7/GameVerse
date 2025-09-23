@@ -37,43 +37,42 @@ export function Header() {
           <a href="#news" className="transition-colors hover:text-primary">
             Noticias
           </a>
-          {/* Expanding Search Bar */}
+
+          {/* Search Bar */}
           <div className="relative flex items-center">
             <AnimatePresence>
               {isSearchOpen && (
                 <motion.div
-                  className="relative mr-0 overflow-hidden rounded-full border border-input bg-background flex-shrink-0"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  exit={{ scaleX: 0 }}
-                  style={{ transformOrigin: "right center" }}
+                  className="relative overflow-hidden rounded-full border border-input bg-background flex items-center"
+                  initial={{ width: 0 }}
+                  animate={{ width: "250px" }}
+                  exit={{ width: 0 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="w-[25vw] max-w-[25vw] pl-10 pr-4 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                    className="w-full pl-10 pr-4 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
                     autoFocus
                   />
-                  <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
                 </motion.div>
               )}
             </AnimatePresence>
+
             <Button
               variant="outline"
               size="icon"
               onClick={() => setIsSearchOpen((prev) => !prev)}
-              className="ml-0 rounded-full transition-all duration-300 ease-out"
-              style={{ marginLeft: isSearchOpen ? 0 : '0' }}
+              className="ml-2 rounded-full transition-all duration-300 ease-out"
             >
               {isSearchOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
             </Button>
           </div>
         </nav>
 
-        {/* Actions */}
+        {/* Actions / Mobile Menu */}
         <div className="flex items-center space-x-2">
-          {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="outline" size="icon">
@@ -83,9 +82,7 @@ export function Header() {
             <SheetContent side="right">
               <SheetHeader>
                 <SheetTitle>Navegación</SheetTitle>
-                <SheetDescription>
-                  Explora todo sobre videojuegos
-                </SheetDescription>
+                <SheetDescription>Explora todo sobre videojuegos</SheetDescription>
               </SheetHeader>
               <nav className="flex flex-col space-y-4 mt-4">
                 <a href="#home" className="transition-colors hover:text-primary">
@@ -95,19 +92,20 @@ export function Header() {
                   Juegos
                 </a>
                 <a href="#categories" className="transition-colors hover:text-primary">
-                  Categorias
+                  Categorías
                 </a>
                 <a href="#news" className="transition-colors hover:text-primary">
                   Noticias
                 </a>
+
                 {/* Mobile Search */}
                 <div className="relative w-full mt-4">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="w-full pl-8 pr-4 py-2 rounded-full border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full pl-10 pr-4 py-2 rounded-full border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
-                  <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 </div>
               </nav>
             </SheetContent>
