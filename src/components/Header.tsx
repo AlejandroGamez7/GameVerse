@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import { GamepadIcon, Menu, Search } from "lucide-react";
+import { GamepadIcon, Menu, Search, X } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -37,42 +37,43 @@ export function Header() {
           <a href="#news" className="transition-colors hover:text-primary">
             Noticias
           </a>
-          {/* Search Bar inside Nav */}
-          <Sheet open={isSearchOpen} onOpenChange={setIsSearchOpen}>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon">
-                <Search className="h-4 w-4" />
-              </Button>
-            </SheetTrigger>
+          {/* Expanding Search Bar */}
+          <div className="relative flex items-center max-w-[25vw]">
             <AnimatePresence>
               {isSearchOpen && (
-                <SheetContent
-                  side="right"
-                  className="w-1/4 max-w-[400px] p-4 bg-background/95 backdrop-blur"
+                <motion.div
+                  className="relative overflow-hidden rounded-full border border-input bg-background"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  exit={{ scaleX: 0 }}
+                  style={{ transformOrigin: "right center" }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <motion.div
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 100 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  >
-                    <div className="flex items-center justify-center">
-                      <div className="relative w-full">
-                        <input
-                          type="text"
-                          placeholder="Buscar juegos..."
-                          className="w-full pl-8 pr-4 py-2 rounded-full border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                        />
-                        <Search
-                          className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
-                        />
-                      </div>
-                    </div>
-                  </motion.div>
-                </SheetContent>
+                  <input
+                    type="text"
+                    placeholder="Buscar juegos..."
+                    className="w-[25vw] pl-10 pr-4 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                    autoFocus
+                  />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                </motion.div>
               )}
             </AnimatePresence>
-          </Sheet>
+            <motion.div
+              initial={false}
+              animate={{ x: isSearchOpen ? "25vw" : 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setIsSearchOpen((prev) => !prev)}
+                className="rounded-full"
+              >
+                {isSearchOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
+              </Button>
+            </motion.div>
+          </div>
         </nav>
 
         {/* Actions */}
@@ -105,15 +106,13 @@ export function Header() {
                   Noticias
                 </a>
                 {/* Mobile Search */}
-                <div className="relative w-full">
+                <div className="relative w-full mt-4">
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
                     className="w-full pl-8 pr-4 py-2 rounded-full border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
-                  <Search
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
-                  />
+                  <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 </div>
               </nav>
             </SheetContent>
