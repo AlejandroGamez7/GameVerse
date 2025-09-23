@@ -51,13 +51,13 @@ export function Header() {
                 >
                   {/* Icono como flex child a la izquierda */}
                   <Search className="ml-3 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
-                  
+
                   {/* Input con padding mínimo, ya que el icono ocupa espacio */}
+                  <Search className="ml-6 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="flex-1 px-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
-                    autoFocus
+                    className="flex-1 pl-6 px-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
                   />
                 </motion.div>
               )}
