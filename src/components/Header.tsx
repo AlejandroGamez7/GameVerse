@@ -32,10 +32,10 @@ export function Header() {
             Juegos
           </a>
           <a href="#categories" className="transition-colors hover:text-primary">
-            Categorías
-          </a>
+              Categorías
+            </a>
           <a href="#news" className="transition-colors hover:text-primary">
-            Noticias 
+            Noticias
           </a>
 
           {/* Search Bar */}
@@ -50,13 +50,16 @@ export function Header() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   {/* Icono como flex child a la izquierda */}
-                  <Search className="ml-3 mr-6 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
+                  <Search
+                    className="ml-2 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none"
+                    style={{ marginRight: '32px !important' }} // Fallback inline forzado
+                  />
                   
-                  {/* Input con padding mínimo, ya que el icono ocupa espacio */}
+                  {/* Input con padding izquierdo extra para más separación */}
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="flex-1 px-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                    className="flex-1 pl-6 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
                     autoFocus
                   />
                 </motion.div>
