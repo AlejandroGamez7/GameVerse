@@ -50,19 +50,16 @@ export function Header() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   {/* Icono fijo a la izquierda */}
-                  <div className="ml-2 mr-2">
+                  <div className="ml-2">
                     <Search className="h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
                   </div>
 
-                  {/* Input con padding para separación */}
-                  <div className="pl-2">
-                    <input
-                      type="text"
-                      placeholder="Buscar juegos..."
-                      className="flex-1 pl-6 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
-                      autoFocus
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    placeholder="Buscar juegos..."
+                    className="flex-1 pl-4 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                  />
+
                 </motion.div>
               )}
             </AnimatePresence>
