@@ -45,22 +45,24 @@ export function Header() {
                 <motion.div
                   className="flex items-center overflow-hidden rounded-full border border-input bg-background mr-2"
                   initial={{ width: 0 }}
-                  animate={{ width: 250, marginRight: 8 }}
+                  animate={{ width: 250, marginRight: 8 }} // Expande hacia la derecha + deja hueco
                   exit={{ width: 0, marginRight: 0 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  {/* Icono fijo a la izquierda con espacio ajustado */}
-                  <div className="ml-3 mr-2 flex items-center">
+                  {/* Icono fijo a la izquierda */}
+                  <div className="ml-2 mr-2">
                     <Search className="h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
                   </div>
 
-                  {/* Input con más padding para alejar el texto del borde */}
-                  <input
-                    type="text"
-                    placeholder="Buscar juegos..."
-                    className="flex-1 pl-12 pr-4 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
-                    autoFocus
-                  />
+                  {/* Input con padding para separación */}
+                  <div className="pl-2">
+                    <input
+                      type="text"
+                      placeholder="Buscar juegos..."
+                      className="flex-1 pl-6 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                      autoFocus
+                    />
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -75,6 +77,7 @@ export function Header() {
               {isSearchOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
             </Button>
           </div>
+
         </nav>
 
         {/* Actions / Mobile Menu */}
@@ -106,11 +109,11 @@ export function Header() {
 
                 {/* Mobile Search */}
                 <div className="relative w-full mt-4">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="w-full pl-14 pr-6 py-2 rounded-full border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full pl-10 pr-4 py-2 rounded-full border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
               </nav>
