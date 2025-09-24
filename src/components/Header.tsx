@@ -57,8 +57,8 @@ export function Header() {
                   {/* Input con padding para separación */}
                   <input
                     type="text"
-                    placeholder="Buscar juegos..."
-                    className="flex-1 pl-6 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                    placeholder="      Buscar juegos..."
+                    className="flex-1 ml-2 pl-6 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
                     autoFocus
                   />
                 </motion.div>
