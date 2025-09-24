@@ -50,7 +50,9 @@ export function Header() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   {/* Icono fijo a la izquierda */}
-                  <Search className="ml-2 h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
+                  <div className="ml-2 mr-2">
+                    <Search className="h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none" />
+                  </div>
 
                   {/* Input con padding para separación */}
                   <input
