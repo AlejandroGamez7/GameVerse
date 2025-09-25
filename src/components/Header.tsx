@@ -51,7 +51,7 @@ export function Header() {
                 >
                   {/* Icono fijo a la izquierda */}
                   <div className="ml-2 mr-2">
-                    <Search className="h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none bg-background/95 backdrop-blur" />
+                    <Search className="h-4 w-4 text-muted-foreground flex-shrink-0 pointer-events-none supports-[backdrop-filter]:bg-background/60" />
                   </div>
 
                   <input
