@@ -43,7 +43,7 @@ export function Header() {
             <AnimatePresence>
               {isSearchOpen && (
                 <motion.div
-                  className="flex items-center overflow-hidden rounded-full border border-input bg-background mr-2 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+                  className="flex items-center overflow-hidden rounded-full border border-input bg-background/40 backdrop-blur-sm mr-2"
                   initial={{ width: 0 }}
                   animate={{ width: 250, marginRight: 8 }} // Expande hacia la derecha + deja hueco
                   exit={{ width: 0, marginRight: 0 }}
