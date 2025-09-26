@@ -57,7 +57,7 @@ export function Header() {
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="flex-1 pl-4 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                    className="flex-1 pl-4 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none rounded-full"
                   />
 
                 </motion.div>
