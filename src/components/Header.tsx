@@ -43,7 +43,7 @@ export function Header() {
             <AnimatePresence>
               {isSearchOpen && (
                 <motion.div
-                  className="flex items-center overflow-hidden rounded-full border border-input bg-background/40 backdrop-blur-sm mr-2"
+                  className="flex items-center overflow-hidden rounded-full bg-background/40 backdrop-blur-sm mr-2"
                   initial={{ width: 0 }}
                   animate={{ width: 250, marginRight: 8 }} // Expande hacia la derecha + deja hueco
                   exit={{ width: 0, marginRight: 0 }}
@@ -57,7 +57,7 @@ export function Header() {
                   <input
                     type="text"
                     placeholder="Buscar juegos..."
-                    className="flex-1 pl-4 pr-3 py-2 bg-transparent border-none text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                    className="flex-1 pl-4 pr-3 py-2 bg-transparent border-none text-foreground focus:border focus:border-primary rounded-full"
                   />
 
                 </motion.div>
